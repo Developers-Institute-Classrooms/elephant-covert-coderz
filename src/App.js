@@ -10,6 +10,9 @@ function App() {
         <p>
           Welcome to Covert Coderz Killer Tax Calculator
         </p>
+        <p>
+          Deployed with CI magic
+        </p>
         <a
           className="App-link"
           href="https://reactjs.org"
