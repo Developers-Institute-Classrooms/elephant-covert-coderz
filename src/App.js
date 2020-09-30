@@ -20,7 +20,7 @@ function App() {
                 <input value={price} onChange={(e)=>{setPrice(e.target.value)}} type='number' />
              </div>
             <div>
-                Your total price is: <span>{ price * numItems }</span>
+                Your total price is: <span>${ price * numItems }</span>
             </div>
         </div>
     );
