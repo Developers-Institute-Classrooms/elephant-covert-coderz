@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+    const [numItems, setNumItems] = useState(0)
+    const [price, setPrice] = useState(0)
+
     return (
         <div className="App">
             <p>
@@ -10,16 +13,16 @@ function App() {
             </p>
             <div>
                 <label>Number of purchased items:</label>
-                <input type='number' />
+                <input value={numItems} onChange={(e)=>{setNumItems(e.target.value)}} type='number' />
             </div>
             <div>
                 <label>Price of your items:</label>
-                <input type='number' />
+                <input value={price} onChange={(e)=>{setPrice(e.target.value)}} type='number' />
+             </div>
+            <div>
+                Your total price is: <span>{ price * numItems }</span>
             </div>
         </div>
-
-
-
     );
 }
 
