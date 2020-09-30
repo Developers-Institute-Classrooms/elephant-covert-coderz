@@ -11,7 +11,7 @@ function App() {
           Welcome to Covert Coderz Killer Tax Calculator
         </p>
         <p>
-          Deployed with CI magic
+          Deployed with CI magic!!
         </p>
         <a
           className="App-link"
