@@ -13,14 +13,8 @@ function App() {
         <p>
           Deployed with CI magic!!
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <label>Number of purchased items</label>
+       <input type='number'/>
       </header>
     </div>
   );
