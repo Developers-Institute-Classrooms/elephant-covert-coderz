@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { ThemeProvider, createTheme, Arwes, Header, Frame, SoundsProvider, createSounds, Puffs } from 'arwes';
 
 function App() {
     const [numItems, setNumItems] = useState(0)
@@ -35,32 +36,43 @@ function App() {
     }
 
     return (
-        <div className="App">
-            <p>
-                Deployed with CI magic!!
-            </p>
-            <div>
-                <label>Number of purchased items:</label>
-                <input value={numItems} onChange={(e) => handleNumItemsChange(e.target.value)} type='number' />
-            </div>
-            <div>
-                <label>Price of your items:</label>
-                <input value={price} onChange={(e) => { handlePriceChange(e.target.value) }} type='number' />
-            </div>
-            <div>
-                <label>Your Tax Code:</label>
-                <select onChange={(e) => handleTaxRateChange(e.target.value)}>
-                    {taxRates.map(t => <option value={t.taxRatePercent}>{t.stateCode}</option>)}
-                </select>
-            </div>
-            <div>
-                Your total price is: <span>${totalPrice}</span>
-            </div>
-            <div>
-                Your total price after tax is: <span>$ {addTax(totalPrice, taxRate)}</span>
-            </div>
+
+        <ThemeProvider theme={createTheme()}>
+            <SoundsProvider sounds={createSounds()}>
+                <Arwes>
+                    <Header>
+                        <p>Welcome to the tax calculator</p>
+                    </Header>
+                    <Puffs>
+                        <Frame level={1} corners={3}>
+                            <div className="App">
+                                <div>
+                                    <label>Number of purchased items:</label>
+                                    <input value={numItems} onChange={(e) => handleNumItemsChange(e.target.value)} type='number' />
+                                </div>
+                                <div>
+                                    <label>Price of your items:</label>
+                                    <input value={price} onChange={(e) => { handlePriceChange(e.target.value) }} type='number' />
+                                </div>
+                                <div>
+                                    <label>Your Tax Code:</label>
+                                    <select onChange={(e) => handleTaxRateChange(e.target.value)}>
+                                        {taxRates.map(t => <option value={t.taxRatePercent}>{t.stateCode}</option>)}
+                                    </select>
+                                </div>
+                                <div>
+                                    Your total price is: <span>${totalPrice}</span>
+                                </div>
+                                <div>
+                                    Your total price after tax is: <span>$ {addTax(totalPrice, taxRate)}</span>
+                                </div>
             The current tax rate for your selected state is: {taxRate}
-        </div>
+                            </div>
+                        </Frame>
+                    </Puffs>
+                </Arwes>
+            </SoundsProvider>
+        </ThemeProvider>
     );
 }
 
